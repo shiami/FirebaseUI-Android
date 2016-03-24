@@ -108,15 +108,19 @@ public abstract class FirebaseRecyclerAdapter<T, VH extends RecyclerView.ViewHol
                 switch (type) {
                     case Added:
                         notifyItemInserted(index);
+                        notifyDataSetChanged();
                         break;
                     case Changed:
                         notifyItemChanged(index);
+                        notifyDataSetChanged();
                         break;
                     case Removed:
                         notifyItemRemoved(index);
+                        notifyDataSetChanged();
                         break;
                     case Moved:
                         notifyItemMoved(oldIndex, index);
+                        notifyDataSetChanged();
                         break;
                     default:
                         throw new IllegalStateException("Incomplete case statement");
